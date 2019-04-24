@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id = "green-count">
+        <span>請輸入重量：<input v-model = "weight">公克</span>
+        <input type = "submit" v-on:click = "count" value = "確認"></input>
+        <p>相較木製，這項產品為地球減少了{{wood}}公克的碳</p>
+        <p>相較鐵製，這項產品為地球減少了{{steel}}公克的碳</p>
+        <p>相較塑膠製，這項產品為地球減少了{{pvc}}公克的碳</p>
+        <p>相較鋁製，這項產品為地球減少了{{alum}}公克的碳</p>
+    </div>
+</body>
+
+<script>
+var green = new Vue({
+    el:'#green-count',
+    data:{
+        weight: 0,
+        wood:0,
+        steel:0,
+        pvc:0,
+        alum:0,
+    },
+    methods: {
+        count: function(){
+            this.wood = this.weight * 440 /1000
+            this.steel = this.weight * 2470 / 1000
+            this.pvc = this.weight * 3160 / 1000
+            this.alum = this.weight * 7240 / 1000
+        }
+    }
+})
+</script>
+</html>
